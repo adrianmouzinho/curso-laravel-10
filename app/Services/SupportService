@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Services;
+
+use stdClass;
+
+class SupportService
+{
+    public function __construct(
+        protected $repository
+    ) {}
+
+    public function getAll(string $filter = null): array
+    {
+        return $this->repository->getAll($filter);
+    }
+
+    public function findOneById(string $id): stdClass
+    {
+        return $this->repository->findOneById($id);
+    }
+
+    public function create(
+        string $subject,
+        string $status,
+        string $body
+    ): stdClass
+    {
+        return $this->repository->create(
+            $subject,
+            $status,
+            $body
+        );
+    }
+
+    public function update(
+        string $id,
+        string $subject,
+        string $status,
+        string $body
+    ): stdClass
+    {
+        return $this->repository->update(
+            $id,
+            $subject,
+            $status,
+            $body
+        );
+    }
+
+    public function delete(string $id): void
+    {
+        $this->repository->delete($id);
+    }
+}
