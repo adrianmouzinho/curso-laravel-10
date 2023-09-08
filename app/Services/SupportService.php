@@ -2,14 +2,14 @@
 
 namespace App\Services;
 
-use App\DTO\CreateSupportDTO;
-use App\DTO\UpdateSupportDTO;
+use App\DTO\{CreateSupportDTO, UpdateSupportDTO};
+use App\Repositories\SupportRepositoryInterface;
 use stdClass;
 
 class SupportService
 {
     public function __construct(
-        protected $repository
+        protected SupportRepositoryInterface $repository
     ) {}
 
     public function getAll(string $filter = null): array
